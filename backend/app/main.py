@@ -39,7 +39,7 @@ app.include_router(projects.router, prefix=f"{settings.API_V1_STR}/projects", ta
 app.include_router(search.router,   prefix=f"{settings.API_V1_STR}/search",   tags=["Search"])
 app.include_router(uploads.router,  prefix=f"{settings.API_V1_STR}/uploads",  tags=["Uploads"])
 
-
-@app.get("/")
+@app.get("/", include_in_schema=False)
+@app.head("/", include_in_schema=False)
 def read_root():
     return {"message": "Welcome to Pradarsh API", "docs": f"{settings.API_V1_STR}/openapi.json"}
