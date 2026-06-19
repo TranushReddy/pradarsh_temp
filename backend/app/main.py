@@ -19,7 +19,7 @@ app = FastAPI(
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://pradarsh-app.onrender.com",  # Your production frontend
+    "https://pradarsh-frontend.onrender.com",  # Your production frontend
 ]
 
 app.add_middleware(
