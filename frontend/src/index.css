@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #8b5cf6;
+  --color-accent: #ec4899;
+  --color-primary-dark: #7c3aed;
+  --color-accent-dark: #db2777;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  body::selection {
+    @apply bg-primary-500 text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-gray-900;
+    line-height: 1.25;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-500;
+  }
+
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-accent-500;
+  }
+  
+  /* Gradients */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-700;
+  }
+  
+  .bg-gradient-cta {
+    @apply bg-gradient-to-r from-primary-500 to-accent-500;
+  }
+
+  .bg-gradient-hero {
+    @apply bg-gradient-to-tr from-primary-50 to-accent-50;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-primary-500/10;
+  }
+
+  .glass-panel-hover {
+    @apply transition-all duration-200;
+  }
+
+  .glass-panel-hover:hover {
+    @apply bg-white/95 border-primary-500/25 shadow-md -translate-y-0.5;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 rounded-3xl p-6 transition-all duration-200;
+  }
+  
+  .shadow-card {
+    @apply shadow-sm shadow-gray-100;
+  }
+  
+  .shadow-dark-card {
+    box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.22), 0 8px 12px -6px rgba(0, 0, 0, 0.22);
+  }
+
+  .shadow-dark-card-hover:hover {
+    box-shadow: 0 28px 55px -10px rgba(0, 0, 0, 0.5), 0 0 35px 2px rgba(139, 92, 246, 0.25) !important;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-md hover:-translate-y-0.5 hover:border-gray-300;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold px-5 py-3.5 rounded-xl transition-all duration-200 shadow-md shadow-primary-500/10 active:scale-[0.98] text-xs inline-flex items-center justify-center cursor-pointer border border-transparent;
+  }
+  
+  .btn-outline {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-bold px-5 py-3.5 rounded-xl border border-gray-200 transition-all duration-200 shadow-sm active:scale-[0.98] text-xs inline-flex items-center justify-center cursor-pointer;
+  }
+
+  /* Form Elements */
+  .input-base {
+    @apply w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-200 shadow-sm;
+  }
+
+  /* Typography Utilities */
+  .section-title {
+    @apply text-3xl sm:text-4xl font-black text-gray-900 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-gray-500 mt-1.5;
+  }
+
+  .category-pill {
+    @apply text-[10px] font-black tracking-widest text-primary-600 bg-primary-50 border border-primary-100/60 px-2.5 py-1 rounded-md shadow-sm uppercase;
+  }
+
+  .tech-tag {
+    @apply text-[9px] font-mono font-bold text-gray-600 bg-gray-50 px-2 py-0.5 rounded border border-gray-200;
+  }
+
+  /* Custom glow shadows */
+  .glow-indigo {
+    box-shadow: 0 0 40px -5px rgba(139, 92, 246, 0.08);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px -5px rgba(236, 72, 153, 0.08);
+  }
+
+  /* Cyber-grid terminal backgrounds */
+  .cyber-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(139, 92, 246, 0.015) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(139, 92, 246, 0.015) 1px, transparent 1px);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfdfd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Infinite Marquee Slider Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+}
+
+/* Animations & Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 3s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Custom Responsive Media Queries */
+
+/* Tablet & Mobile Screens */
+@media (max-width: 768px) {
+  /* Scale down grid density on smaller screens */
+  .cyber-grid {
+    background-size: 24px 24px;
+  }
+
+  /* Slow down marquee velocity on touch devices for easier reading/clicking */
+  .animate-marquee {
+    animation-duration: 32s;
+  }
+}
+
+/* Very Small Mobile Screens */
+@media (max-width: 480px) {
+  /* Reduce default base margins and container paddings */
+  .card {
+    padding: 1.25rem !important;
+    border-radius: 1.5rem !important;
+  }
+  
+  /* Make details/inputs feel less cramped */
+  .input-base {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  /* Optimize font line spacing */
+  body {
+    line-height: 1.5;
+  }
+}
