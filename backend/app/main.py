@@ -13,9 +13,18 @@ app = FastAPI(
 # ---------------------------------------------------------------------------
 # CORS
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# CORS
+# ---------------------------------------------------------------------------
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://pradarsh-app.onrender.com",  # Your production frontend
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Tighten to your frontend origin in production
+    allow_origins=origins,  # Use the explicit list instead of "*"
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

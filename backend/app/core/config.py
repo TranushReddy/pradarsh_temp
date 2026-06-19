@@ -8,7 +8,7 @@ _ENV_FILE = Path(__file__).resolve().parent.parent.parent / ".env"
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Pradarsh"
-    API_V1_STR: str = "/api"
+    API_V1_STR: str = "/api/v1"
     SUPABASE_URL: str
     SUPABASE_KEY: str
     SUPABASE_JWT_SECRET: str
